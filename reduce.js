@@ -1,12 +1,26 @@
 /*
-Write a function called extractValue which accepts an array of objects and a key and returns a new array with the value of each object at the key.
+Write a function called extractValue which accepts an array of objects 
+and a key 
+and returns a new array with the value of each object at the key.
 
 Examples:
     const arr = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}]
     extractValue(arr,'name') // ['Elie', 'Tim', 'Matt', 'Colt']
 */
 
-function extractValue(arr, key) {}
+function extractValue(arr, key) {
+  //array of object is arr since it has a list, key and value
+  //key is the name
+  return arr.reduce(function (
+    acc,
+    nextvalue
+  ) //return arr and reduce into accumualator and nextvalue
+  {
+    acc.push(nextvalue[key]); //push the index value of each object
+    return acc; //return that object as the key
+  },
+  []); //pass thru returned keys in an array
+}
 
 /*
 Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
