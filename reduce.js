@@ -13,13 +13,11 @@ function extractValue(arr, key) {
   //key is the name
   return arr.reduce(function (
     acc,
-    nextvalue
-  ) //return arr and reduce into accumualator and nextvalue
-  {
+    nextvalue //return arr and reduce into accumualator and nextvalue
+  ) {
     acc.push(nextvalue[key]); //push the index value of each object
     return acc; //return that object as the key
-  },
-  []); //pass thru returned keys in an array
+  }, []); //pass thru returned keys in an array
 }
 
 /*
@@ -33,7 +31,23 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 
-function vowelCount(str) {}
+function vowelCount(str) {
+  //set up a variable with vowels
+  const vowel = aeiou;
+  //set up a split method to sepereate each index of value then use array method reduce to itereate selected index loction and move to next value
+  return srt.split("").reduce(function (acc, nextVal) {
+    //set passed thru value as a lowercase string
+    let lowerCased = nextVal.toLowerCase();
+    //if index passed thru does not equal -1 then move to next value
+    if (vowel.indexOf(lowerCased) !== 1)
+      if (acc[lowerCased]) {
+        acc[lowerCased]++; //passthru value as lowercase if lowercase value already present then add by 1
+      } else {
+        acc[lowerCased] = 1;
+      }
+    return acc;
+  }, {});
+}
 
 /*
 Write a function called addKeyAndValue which accepts an array of objects and returns the array of objects passed to it with each object now including the key and value passed to the function.
